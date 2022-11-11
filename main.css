@@ -291,3 +291,6 @@ main {
     margin-top: -16px;
 
 }
+.strikeThroughDone{
+    text-decoration: line-through;
+}

@@ -2,6 +2,8 @@ window.addEventListener('load', () => {
 	const form = document.querySelector("#new-task-form");
 	const input = document.querySelector("#new-task-input");
 	const list_el = document.querySelector("#tasks");
+	const done_el = document.querySelector("#done");
+
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
@@ -20,6 +22,9 @@ window.addEventListener('load', () => {
 		task_el.classList.add('task');
 
 		const task_content_el = document.createElement('div');
+		task_content_el.classList.add('content');
+
+		const task_contents_el = document.createElement('div');
 		task_content_el.classList.add('content');
 
 		task_el.appendChild(task_content_el);
@@ -78,10 +83,35 @@ window.addEventListener('load', () => {
 
 		input.value = '';
 
-		task_done_el.addEventListener('click',(e)=>{
-			list_el.appendChild();
-			task_done_el.appendChild();
-		})	
+		// task_done_el.addEventListener('click',function(){
+			
+		// 	task_content_el.appendChild(task_contents_el);
+		// 	task_el.removeChild();
+
+
+		// })	;
+
+		task_done_el.addEventListener('click',()=>{
+			task_content_el.classList.toggle('strikeThroughDone');
+
+			//$('#tasks').clone().appendChild('#done');
+
+
+
+			// var $el = $('.tasks').clone();
+            // $('#done').append($el);
+
+			// task_contents_el.appendChild(task_contents_el);
+
+			 list_el.removeChild(task_el);
+			 list_el
+
+			// document.getElementById('done').appendChild(
+			// 	document.getElementById('tasks')
+			//   );
+			
+		});
+
 
 
 		task_edit_el.addEventListener('click', (e) => {
