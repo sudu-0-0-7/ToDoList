@@ -103,8 +103,8 @@ window.addEventListener('load', () => {
 
 			// task_contents_el.appendChild(task_contents_el);
 
-			 list_el.removeChild(task_el);
-			 list_el
+			//  list_el.removeChild(task_el);
+			//  list_el
 
 			// document.getElementById('done').appendChild(
 			// 	document.getElementById('tasks')
