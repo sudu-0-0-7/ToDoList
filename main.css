@@ -42,8 +42,8 @@ header h1{
 
  input, button {
 	 /* appearance: none;   */
-	 border: none; 
-	outline: none;
+	  border: none;  
+	 outline: none; 
 	background: none;
 } 
 
@@ -108,6 +108,17 @@ main {
 	margin-bottom: 1rem;
 }
 
+.task-list1 {
+	padding: 1rem;
+}
+
+.task-list1 h2 {
+	font-size: 1.5rem;
+	font-weight: 300; 
+	color: var(--grey);
+	margin-bottom: 1rem;
+}
+
 #tasks .task {
 	display: flex;
 	justify-content: space-between;
@@ -154,6 +165,7 @@ main {
 	text-transform: uppercase;
 	transition: 0.4s;
     border-color: #FFF;
+	
 
 }
 
@@ -165,7 +177,7 @@ main {
 	opacity: 0.6;
 }
 /* --------------------------------------------EDIT BUTTON-------------------------------------------------------------------- */
-.task .actions .edit {
+/* .task .actions .edit {
     font: 700 10px consolas;
     color: rgb(236, 72, 153);
     text-decoration: none;
@@ -177,7 +189,7 @@ main {
     transition: 0.2s;
 	transform: scale(2);
     margin-top: -16px;
-}
+} */
 /* ---------------------------------------DELETE BUTTON-------------------------------------------------------------------- */
 .task .actions .delete {
     font: 700 10px consolas;
@@ -189,12 +201,13 @@ main {
     overflow: hidden;
     border-radius: 5px;
     transition: 0.2s;
-	transform: scale(2);
+	/* transform: scale(2); */
     margin-top: -16px;
+	border: #050801;
 
 }
 
-.task .actions .done {
+/* .task .actions .done {
     font: 700 10px consolas;
     color: rgb(236, 72, 153);
     text-decoration: none;
@@ -207,7 +220,7 @@ main {
 	transform: scale(2);
     margin-top: -16px;
 
-}
+} */
 .strikeThroughDone{
     text-decoration: line-through;
 }
@@ -217,7 +230,7 @@ main {
 
 input[type="checkbox"] {
 
-    display: flex;
+     display: flex; 
 
     align-items: center;
 
@@ -225,6 +238,6 @@ input[type="checkbox"] {
 
     height: 20px;
 
-    margin-left: -200px;
+    margin-left: -100px;
     
 }
