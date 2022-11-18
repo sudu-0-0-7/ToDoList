@@ -71,44 +71,52 @@ console.log(task_input_el);
 
 
 		checkbox_el.addEventListener('click',function(){
-	 	task_content_el.classList.toggle('strikeThroughDone');
-
-
-
-		const tasks = task;
+			const tasks = task;
 		console.log(tasks);
 		const tasks_el = document.createElement('div');
 		 tasks_el.classList.add('tasks');
- 
+	
 		 const task_contents_el = document.createElement('div');
 		task_contents_el.classList.add('content');
- console.log(tasks);
- console.log(task_contents_el);
- //list_el.removeChild(task_el);
-
+	console.log(tasks);
+	//console.log(task_contents_el);
+	//list_el.removeChild(task_el);
+	
 		 tasks_el.appendChild(task_contents_el);
 		 
-
-		 const task_input_el = document.createElement('input');
 	
-		 task_input_el.classList.add('text');
-		 task_input_el.type = 'text';
-		 task_input_el.value = tasks;
-		 task_input_el.setAttribute('readonly', 'readonly');
- console.log(task_input_el);
-		 task_contents_el.appendChild(task_input_el);
-		 console.log(task_input_el);
-
-
+		 const task_inputs_el = document.createElement('input');
+	
+		 task_inputs_el.classList.add('text');
+		 task_inputs_el.type = 'text';
+		 task_inputs_el.value = tasks;
+		 task_inputs_el.setAttribute('readonly', 'readonly');
+	//console.log(task_input_el);
+		 task_contents_el.appendChild(task_inputs_el);
+		 console.log(task_inputs_el);
+	
+	
 		const task_action_el = document.createElement('div');
-		 task_action_el.classList.add('actions');
-		console.log(task);
+		task_action_el.classList.add('actions');
+		//console.log();
 
+		done_el.appendChild(task_el);
+
+
+	 	task_content_el.classList.toggle('strikeThroughDone');
+
+
+		
+
+		 
+
+
+
+		
 		 
 		});
 
-
-
+		
 
 
 
@@ -118,7 +126,8 @@ console.log(task_input_el);
 			list_el.removeChild(task_el);
 		});
     }
-	   
+	
+
 
 	});
 
