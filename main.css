@@ -1,7 +1,7 @@
 :root {
 	--dark: #374151;
-	--darker: #c4cad2;
-	--darkest: #b0b4bb;
+	--darker: #303b49;
+	--darkest: #2c323c;
 	--grey: #6B7280;
 	--pink: rgb(236, 72, 153);
 	--purple: #8B5CF6;
@@ -19,7 +19,7 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	color: #FFF;
-	background-color: rgb(168, 154, 154);
+	background-color: rgb(66, 61, 61);
 }
 
 header {
@@ -63,12 +63,12 @@ header h1{
 	color: var(--grey);
 }
 
-#a{
+#add{
     position: relative;
     display: inline-block;
     padding: 15px 30px;
     margin: 40px 0;
-    color: #a34c87;
+    color: #d8259c;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
@@ -77,8 +77,8 @@ header h1{
     font-weight: bold;
    
 }
-#a:hover{
-    background: #f803cf;
+#add:hover{
+    background: #5e4059;
     color: #050801;
    
 }
@@ -111,7 +111,6 @@ main {
 .task-list1 {
 	padding: 1rem;
 }
-
 .task-list1 h2 {
 	font-size: 1.5rem;
 	font-weight: 300; 
@@ -119,7 +118,9 @@ main {
 	margin-bottom: 1rem;
 }
 
-#tasks .task {
+
+
+ .task {
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--darkest);
@@ -129,10 +130,7 @@ main {
 	margin-bottom: 1rem;
     height:60px;
 }
-#tasks .task:hover{
-    /* background-color: #03e9f4; */
-    color: #050801;
-}
+
 
 .task .content {
 	flex: 1 1 0%;
@@ -165,8 +163,6 @@ main {
 	text-transform: uppercase;
 	transition: 0.4s;
     border-color: #FFF;
-	
-
 }
 
 .task .actions button:hover {
@@ -176,6 +172,65 @@ main {
 .task .actions button:active {
 	opacity: 0.6;
 }
+/* --------------------------------------------Completed tasks------------------------------------------------------------- */
+
+.tasks {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--darkest);
+	padding: 1rem;
+    margin-top: 20px;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+    height:60px;
+}
+.tasks:hover{
+    background-color: #03e9f4; 
+    color: #050801;
+}
+
+.tasks .content {
+	flex: 1 1 0%;
+}
+
+.done .content .text {
+	color: var(--light);
+	font-size: 1.125rem;
+	width: 100%;
+	display: block;
+	transition: 0.4s;
+    color: rgb(22, 138, 210);
+
+}
+
+.tasks .content .text:not(:read-only) {
+	color: rgb(40, 129, 207);
+}
+
+.tasks .actions {
+	display: flex;
+	margin: 0 -0.5rem;
+}
+
+.tasks .actions button {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.4s;
+    border-color: #FFF;	
+
+}
+
+.tasks .actions button:hover {
+	opacity: 0.8;
+}
+
+.tasks .actions button:active {
+	opacity: 0.6;
+}
+
 /* --------------------------------------------EDIT BUTTON-------------------------------------------------------------------- */
 /* .task .actions .edit {
     font: 700 10px consolas;
@@ -192,7 +247,7 @@ main {
 } */
 /* ---------------------------------------DELETE BUTTON-------------------------------------------------------------------- */
 .task .actions .delete {
-    font: 700 10px consolas;
+    font: 700 14px consolas;
     color: rgb(236, 72, 153);
     text-decoration: none;
     text-transform: uppercase;
@@ -201,7 +256,7 @@ main {
     overflow: hidden;
     border-radius: 5px;
     transition: 0.2s;
-	/* transform: scale(2); */
+	 /* transform: scale(2);  */
     margin-top: -16px;
 	border: #050801;
 
@@ -223,9 +278,6 @@ main {
 } */
 .strikeThroughDone{
     text-decoration: line-through;
-}
-.strikeThroughDonee{
-    text-decoration: none;
 }
 
 input[type="checkbox"] {
