@@ -36,7 +36,7 @@ header h1{
 	margin-bottom: 1rem;
 }
 
-#new-task-form {
+#NewTaskForm {
 	display: flex;;
 }
 
@@ -47,7 +47,7 @@ header h1{
 	background: none;
 } 
 
-#new-task-input {
+#NewTaskInput {
     margin-top: 34px;
     height: 50px;
 	flex: 1 1 0%;
@@ -59,11 +59,11 @@ header h1{
 	font-size: 1.25rem;
 }
 
-#new-task-input::placeholder {
+#NewTaskInput::placeholder {
 	color: var(--grey);
 }
 
-#add{
+#Add{
     position: relative;
     display: inline-block;
     padding: 15px 30px;
@@ -77,19 +77,11 @@ header h1{
     font-weight: bold;
    
 }
-#add:hover{
+#Add:hover{
     background: #5e4059;
     color: #050801;
    
 }
-#new-task-submit:hover {
-	opacity: 0.8;
-}
-
-#new-task-submit:active {
-	opacity: 0.6;
-}
-
 main {
 	flex: 1 1 0%;
 	max-width: 800px;
@@ -97,28 +89,16 @@ main {
 	margin: 0 auto;
 }
 
-.task-list {
+.TaskList {
 	padding: 1rem;
 }
 
-.task-list h2 {
+.TaskList h2 {
 	font-size: 1.5rem;
 	font-weight: 300; 
 	color: var(--grey);
 	margin-bottom: 1rem;
 }
-
-.task-list1 {
-	padding: 1rem;
-}
-.task-list1 h2 {
-	font-size: 1.5rem;
-	font-weight: 300; 
-	color: var(--grey);
-	margin-bottom: 1rem;
-}
-
-
 
  .task {
 	display: flex;

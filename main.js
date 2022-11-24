@@ -22,10 +22,10 @@ console.log("todos 5",todos)
 // 	{ content: '4',done: true},
 // ];
 
-var form = document.querySelector("#new-task-form");
-var input = document.querySelector("#new-task-input");
-var list_el = document.querySelector("#tasks");
-var done_el = document.querySelector("#done");
+var form = document.querySelector("#NewTaskForm");
+var input = document.querySelector("#NewTaskInput");
+var listElement = document.querySelector("#Tasks");
+var doneElement = document.querySelector("#Done");
 
 todos.forEach(Element => {
 	display(Element);
@@ -60,67 +60,67 @@ form.addEventListener('submit', (e) => {
 
 function display(task) {
 
-	var task_el = document.createElement('div');
-	task_el.classList.add('task');
+	var taskElement = document.createElement('div');
+	taskElement.classList.add('task');
 
-	var task_content_el = document.createElement('div');
-	task_content_el.classList.add('content');
+	var taskContentElement = document.createElement('div');
+	taskContentElement.classList.add('content');
 
-	console.log(task_content_el);
+	console.log(taskContentElement);
 
-	task_el.appendChild(task_content_el);
+	taskElement.appendChild(taskContentElement);
 
-	var task_input_el = document.createElement('input');
+	var taskInputElement = document.createElement('input');
 
-	task_input_el.classList.add('text');
-	task_input_el.type = 'text';
-	task_input_el.value = task;
-	task_input_el.setAttribute('readonly', 'readonly');
+	taskInputElement.classList.add('text');
+	taskInputElement.type = 'text';
+	taskInputElement.value = task;
+	taskInputElement.setAttribute('readonly', 'readonly');
 
-	task_content_el.appendChild(task_input_el);
+	taskContentElement.appendChild(taskInputElement);
 
-	var task_actions_el = document.createElement('div');
-	task_actions_el.classList.add('actions');
+	var taskActionsElement = document.createElement('div');
+	taskActionsElement.classList.add('actions');
 	
-	var checkbox_el = document.createElement('input');
+	var checkboxElement = document.createElement('input');
 	//checkbox_el.setAttribute("type", "checkbox");
-	checkbox_el.type = "checkbox";
-	task_actions_el.appendChild(checkbox_el);
+	checkboxElement.type = "checkbox";
+	taskActionsElement.appendChild(checkboxElement);
 
 
-	var task_delete_el = document.createElement('button');
-	task_delete_el.classList.add('delete');
-	task_delete_el.innerText = 'Delete';
+	var taskDeleteElement = document.createElement('button');
+	taskDeleteElement.classList.add('delete');
+	taskDeleteElement.innerText = 'Delete';
 
-	task_actions_el.appendChild(task_delete_el);
+	taskActionsElement.appendChild(taskDeleteElement);
 
-	task_el.appendChild(task_actions_el);
+	taskElement.appendChild(taskActionsElement);
 
 
-	list_el.appendChild(task_el);
+	listElement.appendChild(taskElement);
 
-	task_delete_el.addEventListener('click', (e) => {
+	taskDeleteElement.addEventListener('click', (e) => {
 		console.log("dddddddddd",task);
-		list_el.removeChild(task_el);
+		listElement.removeChild(taskElement);
 
-		const xyz = document.getElementById('tasks').getElementsByClassName('text');
-		console.log("yyyyyyyyyy",xyz);
-		console.log("xyzlength",xyz.length);
-		console.log(typeof(xyz));
-		console.log("yyyyyyyyyy",xyz);
+		const remainingTexts = document.getElementById('Tasks').getElementsByClassName('text');
+		console.log("yyyyyyyyyy",remainingTexts);
+		console.log("xyzlength",remainingTexts.length);
+		console.log(typeof(remainingTexts));
+		console.log("yyyyyyyyyy",remainingTexts);
 		todos = [];
-		for(var i=0 ; i< xyz.length ;i++)
+		for(var i=0 ; i< remainingTexts.length ;i++)
 		{
-			console.log("valofi",xyz[i].value);
-			todos.push(xyz[i].value);
+			console.log("valofi",remainingTexts[i].value);
+			todos.push(remainingTexts[i].value);
 		}
 
-		console.log("yyyyyyyyyy",xyz);
+		console.log("yyyyyyyyyy",remainingTexts);
 
 	
 		console.log("todosval",todos);
 		localStorage.clear();
-		localStorage.setItem('todos',JSON.stringify(todos));
+		localStorage.setItem('todos',todos);
 
 		console.log("dddddddddd",task)
 
@@ -128,40 +128,40 @@ function display(task) {
 		
 
 	});
-	checkbox_el.addEventListener('change', function () {
+	checkboxElement.addEventListener('change', function () {
 		if (this.checked) {
 
 			var tasks = task;
 
-			var tasks_el = document.createElement('div');
-			tasks_el.classList.add('tasks');
+			var tasksElement = document.createElement('div');
+			tasksElement.classList.add('tasks');
 
-			var task_contents_el = document.createElement('div');
-			task_contents_el.classList.add('content');
+			var taskContentsElement = document.createElement('div');
+			taskContentsElement.classList.add('content');
 
-			tasks_el.appendChild(task_contents_el);
-			var task_inputs_el = document.createElement('div');
-			task_inputs_el.classList.add('text');
-			task_inputs_el.type = 'text';
-			task_inputs_el.value = tasks;
-			task_inputs_el.setAttribute('readonly', 'readonly');
-			task_contents_el.appendChild(task_inputs_el);
+			tasksElement.appendChild(taskContentsElement);
+			var taskInputsElement = document.createElement('div');
+			taskInputsElement.classList.add('text');
+			taskInputsElement.type = 'text';
+			taskInputsElement.value = tasks;
+			taskInputsElement.setAttribute('readonly', 'readonly');
+			taskContentsElement.appendChild(taskInputsElement);
 
-			var task_action_el = document.createElement('div');
-			task_action_el.classList.add('actions');
-			done_el.appendChild(task_el);
-			task_content_el.classList.toggle('strikeThroughDone');
+			var taskActionElement = document.createElement('div');
+			taskActionElement.classList.add('actions');
+			doneElement.appendChild(taskElement);
+			taskContentElement.classList.toggle('strikeThroughDone');
 			localStorage.setItem('todos', todos);
 		}
 		else {
-			task_actions_el.appendChild(task_delete_el);
+			taskActionsElement.appendChild(taskDeleteElement);
 
-			task_delete_el.addEventListener('click', (e) => {
-				done_el.removeChild(task_el);
+			taskDeleteElement.addEventListener('click', (e) => {
+				doneElement.removeChild(taskElement);
 			});
 
-			list_el.appendChild(task_el);
-			task_content_el.classList.toggle('strikeThroughDone');
+			listElement.appendChild(taskElement);
+			taskContentElement.classList.toggle('strikeThroughDone');
 			
 
 		}
