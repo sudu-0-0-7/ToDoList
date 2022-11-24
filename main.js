@@ -1,22 +1,40 @@
-const todos = [];
-console.log("line 3", typeof (todos));
+var todos = [];
+// localStorage.setItem('todos',1);
+//localStorage.clear();
 
-console.log("text", localStorage.getItem('todos'));
+var localStoredVal = localStorage.getItem('todos');
 
-//todos.push(localStorage.getItem('todos').split(','));
-console.log("line 12", typeof (todos));
+console.log("localStoredVal ",localStoredVal)
+if(localStoredVal){
+todos = localStoredVal.split(',');
+}
+console.log("todos 5",todos)
 
-console.log("todos value", todos)
-console.log("ToDo list", typeof (todos));
-const form = document.querySelector("#new-task-form");
-const input = document.querySelector("#new-task-input");
-const list_el = document.querySelector("#tasks");
-const done_el = document.querySelector("#done");
+// const db = {
+// 	tasks: [1,2],
+// 	completed: [3,4]
+// };
 
+// const db2 = [ 
+// 	{ content: '1',done: false},
+// 	{ content: '2',done: false},
+// 	{ content: '3',done: true},
+// 	{ content: '4',done: true},
+// ];
 
+var form = document.querySelector("#new-task-form");
+var input = document.querySelector("#new-task-input");
+var list_el = document.querySelector("#tasks");
+var done_el = document.querySelector("#done");
+
+todos.forEach(Element => {
+	display(Element);
+});
+
+// Tak einput 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
-	const task = input.value;
+	var task = input.value;
 
 	console.log(task);
 
@@ -24,27 +42,35 @@ form.addEventListener('submit', (e) => {
 		alert("Please Enter a task")
 		return;
 	}
+	
 
-	//console.log(typeof(task));
-	todos.push(task);
-	// console.log("Array",todos);
-	// console.log(typeof(todos));
-	localStorage.setItem('todos', todos);
-	console.log("local storage",localStorage.getItem('todos'));
+		display(task);
+
+		todos.push(task);
+	console.log("tttt",todos)
+
+	console.log("local storage",localStorage.setItem('todos', todos));
+
+	input.value = '';
 
 
+}
+);
 
-	const task_el = document.createElement('div');
+
+function display(task) {
+
+	var task_el = document.createElement('div');
 	task_el.classList.add('task');
 
-	const task_content_el = document.createElement('div');
+	var task_content_el = document.createElement('div');
 	task_content_el.classList.add('content');
 
 	console.log(task_content_el);
 
 	task_el.appendChild(task_content_el);
 
-	const task_input_el = document.createElement('input');
+	var task_input_el = document.createElement('input');
 
 	task_input_el.classList.add('text');
 	task_input_el.type = 'text';
@@ -53,15 +79,16 @@ form.addEventListener('submit', (e) => {
 
 	task_content_el.appendChild(task_input_el);
 
-	const task_actions_el = document.createElement('div');
+	var task_actions_el = document.createElement('div');
 	task_actions_el.classList.add('actions');
-
-	const checkbox_el = document.createElement('input');
+	
+	var checkbox_el = document.createElement('input');
 	//checkbox_el.setAttribute("type", "checkbox");
 	checkbox_el.type = "checkbox";
 	task_actions_el.appendChild(checkbox_el);
 
-	const task_delete_el = document.createElement('button');
+
+	var task_delete_el = document.createElement('button');
 	task_delete_el.classList.add('delete');
 	task_delete_el.innerText = 'Delete';
 
@@ -69,34 +96,62 @@ form.addEventListener('submit', (e) => {
 
 	task_el.appendChild(task_actions_el);
 
+
 	list_el.appendChild(task_el);
 
-	input.value = '';
+	task_delete_el.addEventListener('click', (e) => {
+		console.log("dddddddddd",task);
+		list_el.removeChild(task_el);
+
+		const xyz = document.getElementById('tasks').getElementsByClassName('text');
+		console.log("yyyyyyyyyy",xyz);
+		console.log("xyzlength",xyz.length);
+		console.log(typeof(xyz));
+		console.log("yyyyyyyyyy",xyz);
+		todos = [];
+		for(var i=0 ; i< xyz.length ;i++)
+		{
+			console.log("valofi",xyz[i].value);
+			todos.push(xyz[i].value);
+		}
+
+		console.log("yyyyyyyyyy",xyz);
+
+	
+		console.log("todosval",todos);
+		localStorage.clear();
+		localStorage.setItem('todos',JSON.stringify(todos));
+
+		console.log("dddddddddd",task)
 
 
+		
+
+	});
 	checkbox_el.addEventListener('change', function () {
 		if (this.checked) {
 
-			const tasks = task;
+			var tasks = task;
 
-			const tasks_el = document.createElement('div');
+			var tasks_el = document.createElement('div');
 			tasks_el.classList.add('tasks');
 
-			const task_contents_el = document.createElement('div');
+			var task_contents_el = document.createElement('div');
 			task_contents_el.classList.add('content');
 
 			tasks_el.appendChild(task_contents_el);
-			const task_inputs_el = document.createElement('div');
+			var task_inputs_el = document.createElement('div');
 			task_inputs_el.classList.add('text');
 			task_inputs_el.type = 'text';
 			task_inputs_el.value = tasks;
 			task_inputs_el.setAttribute('readonly', 'readonly');
 			task_contents_el.appendChild(task_inputs_el);
 
-			const task_action_el = document.createElement('div');
+			var task_action_el = document.createElement('div');
 			task_action_el.classList.add('actions');
 			done_el.appendChild(task_el);
 			task_content_el.classList.toggle('strikeThroughDone');
+			localStorage.setItem('todos', todos);
 		}
 		else {
 			task_actions_el.appendChild(task_delete_el);
@@ -107,11 +162,12 @@ form.addEventListener('submit', (e) => {
 
 			list_el.appendChild(task_el);
 			task_content_el.classList.toggle('strikeThroughDone');
+			
 
 		}
 	});
-	task_delete_el.addEventListener('click', (e) => {
-		list_el.removeChild(task_el);
-	});
+
+
+	
+
 }
-);
