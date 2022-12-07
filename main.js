@@ -34,19 +34,17 @@ todos.forEach(Element => {
 // Tak einput 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
-	var task ={
-			 content:input.value,
-			 done:false
-	}
+	var task = input.value;
 
 	console.log(task);
+
 	if (input.value == "") {
-		alert("Please Enter a task");
+		alert("Please Enter a task")
 		return;
 	}
 	
 
-		display(JSON.stringify(task.content));
+		display(task);
 
 		todos.push(task);
 	console.log("tttt",todos)
